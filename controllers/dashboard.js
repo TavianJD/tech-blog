@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models/Assoc');
-const autherized = require('../utils/autherize')
+const authorized = require('../utils/authorize')
 
 // use the ID from the session (change body to session)
-router.get('/', autherized, (req, res) => {
+router.get('/', authorized, (req, res) => {
     Post.findAll({
       where: {
         
@@ -38,7 +38,7 @@ router.get('/', autherized, (req, res) => {
   
 
 
-router.get('/edit/:id', autherized,(req, res) => {
+router.get('/edit/:id', authorized,(req, res) => {
     Post.findByPk(req.params.id, {
       attributes: [
         'id',

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../../models/Assoc");
-const autherized = require("../../utils/autherize");
+const authorized = require("../../utils/authorize");
 
 router.get("/", (req, res) => {
   console.log(req, "this is request");
@@ -48,7 +48,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", autherized, (req, res) => {
+router.post("/", authorized, (req, res) => {
   Post.create({
     title: req.body.title,
     post_text: req.body.post_text,
