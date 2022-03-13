@@ -19,7 +19,7 @@ const sess = {
 };
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
